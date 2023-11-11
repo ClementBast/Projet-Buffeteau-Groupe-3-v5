@@ -1,0 +1,21 @@
+.couleurDeFond
+{
+    -fx-background-color: lightblue;
+}
+
+.boutonCouleur
+{
+    -fx-background-color:  #82E3F8;
+}
+
+.btnMenu:hover
+{
+    -fx-background-color : white;
+    -fx-background-radius : 30 0 0 30;
+    -fx-font-family: "Comic Sans MS";
+}
+
+.ap
+{
+    -fx-background-color : white;
+}

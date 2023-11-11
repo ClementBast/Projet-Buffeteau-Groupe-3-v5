@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="ap" stylesheets="@../../Styles/mesStyles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sio.projetbuffteauv3.EtudiantController">
+   <children>
+      <AnchorPane prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: lightblue;">
+         <children>
+            <Label layoutX="31.0" layoutY="33.0" text="Projet Help Lerebours">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="100.0" prefHeight="300.0" prefWidth="100.0" style="-fx-background-color: lightblue;">
+         <children>
+            <VBox prefHeight="300.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="btnComp" mnemonicParsing="false" onMouseClicked="#btnCompClicked" prefHeight="30.0" prefWidth="100.0" text="Compétences">
+                     <styleClass>
+                        <String fx:value="boutonCouleur" />
+                        <String fx:value="btnMenu" />
+                     </styleClass>
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnDemandes" mnemonicParsing="false" onMouseClicked="#btnDemandesClicked" prefHeight="30.0" prefWidth="100.0" text="Demandes">
+                     <styleClass>
+                        <String fx:value="boutonCouleur" />
+                        <String fx:value="btnMenu" />
+                     </styleClass>
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnMesAides" mnemonicParsing="false" onMouseClicked="#btnMesAidesClicked" prefHeight="30.0" prefWidth="100.0" text="Mes aides">
+                     <styleClass>
+                        <String fx:value="boutonCouleur" />
+                        <String fx:value="btnMenu" />
+                     </styleClass>
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnLesAides" mnemonicParsing="false" onMouseClicked="#btnLesAidesClicked" prefHeight="30.0" prefWidth="100.0" text="Les aides">
+                     <styleClass>
+                        <String fx:value="boutonCouleur" />
+                        <String fx:value="btnMenu" />
+                     </styleClass>
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnStats" mnemonicParsing="false" onMouseClicked="#btnStatsClicked" prefHeight="30.0" prefWidth="100.0" text="Statistiques">
+                     <styleClass>
+                        <String fx:value="boutonCouleur" />
+                        <String fx:value="btnMenu" />
+                     </styleClass>
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="apComp" layoutX="100.0" layoutY="100.0" prefHeight="300.0" prefWidth="500.0" styleClass="ap">
+         <children>
+            <TableView fx:id="tvCompMatières" layoutX="75.0" layoutY="28.0" prefHeight="200.0" prefWidth="130.0">
+              <columns>
+                <TableColumn fx:id="tcCompMat" prefWidth="130.0" text="Matières" />
+              </columns>
+            </TableView>
+            <TableView fx:id="tvCompSousMat" layoutX="275.0" layoutY="28.0" prefHeight="200.0" prefWidth="130.0">
+               <columns>
+                  <TableColumn fx:id="tcCompSousMat" prefWidth="130.0" text="Sous-matières" />
+               </columns>
+            </TableView>
+            <Button fx:id="btnCreerComp" layoutX="84.0" layoutY="247.0" mnemonicParsing="false" onMouseClicked="#btnCreerCompClicked" text="Créer compétence" />
+            <Button fx:id="btnModifierComp" layoutX="310.0" layoutY="247.0" mnemonicParsing="false" onMouseClicked="#btnModifierCompClicked" text="Modifier" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="apCreerComp" layoutX="100.0" layoutY="100.0" prefHeight="300.0" prefWidth="500.0" styleClass="ap">
+         <children>
+            <ComboBox fx:id="cboCompSousMat" layoutX="176.0" layoutY="156.0" prefWidth="150.0" />
+            <ComboBox fx:id="cboCompMat" layoutX="177.0" layoutY="87.0" prefWidth="150.0" />
+            <Label layoutX="214.0" layoutY="133.0" text="Sous-matières" />
+            <Label layoutX="227.0" layoutY="60.0" text="Matières" />
+            <Button fx:id="btnCreerCompValider" layoutX="226.0" layoutY="215.0" mnemonicParsing="false" onMouseClicked="#btnCreerCompValiderClicked" text="Valider" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="apModifierComp" layoutX="100.0" layoutY="100.0" prefHeight="300.0" prefWidth="500.0" styleClass="ap">
+         <children>
+            <ComboBox fx:id="cboModifSousMat" layoutX="175.0" layoutY="157.0" prefWidth="150.0" />
+            <Label layoutX="175.0" layoutY="54.0" text="Matière" />
+            <TextField fx:id="txtModifCompMat" layoutX="176.0" layoutY="80.0" />
+            <Label layoutX="175.0" layoutY="133.0" text="Sous Matière" />
+            <Button fx:id="btnModifierCompValider" layoutX="219.0" layoutY="213.0" mnemonicParsing="false" onMouseClicked="#btnModifierCompValiderClicked" text="Modifier" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="apDemandes" layoutX="100.0" layoutY="100.0" prefHeight="300.0" prefWidth="500.0" styleClass="ap">
+         <children>
+            <TableView fx:id="tvDemMatières" layoutX="75.0" layoutY="28.0" prefHeight="200.0" prefWidth="130.0">
+               <columns>
+                  <TableColumn fx:id="tcDemMat" prefWidth="130.0" text="Matières" />
+               </columns>
+            </TableView>
+            <TableView fx:id="tvDemSousMat" layoutX="275.0" layoutY="28.0" prefHeight="200.0" prefWidth="130.0">
+               <columns>
+                  <TableColumn fx:id="tcDemSousMat" prefWidth="130.0" text="Sous-matières" />
+               </columns>
+            </TableView>
+            <Button fx:id="btnCreerDem" layoutX="91.0" layoutY="242.0" mnemonicParsing="false" onMouseClicked="#btnCreerDemClicked" text="Créer demande" />
+            <Button fx:id="btnModifierDem" layoutX="310.0" layoutY="242.0" mnemonicParsing="false" onMouseClicked="#btnModifierDemClicked" text="Modifier" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="apCreerDem" layoutX="100.0" layoutY="100.0" prefHeight="300.0" prefWidth="500.0" styleClass="ap">
+         <children>
+            <Label layoutX="31.0" layoutY="28.0" text="Choisir une date" />
+            <DatePicker fx:id="dpCreerDemDate" layoutX="163.0" layoutY="24.0" />
+            <TableView fx:id="tvCreerDemMat" layoutX="75.0" layoutY="61.0" prefHeight="200.0" prefWidth="130.0">
+               <columns>
+                  <TableColumn fx:id="tcCreerDemMat" prefWidth="130.0" text="Matière" />
+               </columns>
+            </TableView>
+            <TableView fx:id="tvDemCreerSousMat" layoutX="321.0" layoutY="61.0" prefHeight="200.0" prefWidth="130.0">
+               <columns>
+                  <TableColumn fx:id="tcCreerDemSousMat" prefWidth="129.0" text="Sous-Matière" />
+               </columns>
+            </TableView>
+            <Button fx:id="btnCreerValiderDem" layoutX="219.0" layoutY="261.0" mnemonicParsing="false" onMouseClicked="#btnValiderDemClicked" prefHeight="25.0" prefWidth="87.0" text="Valider" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="apModifDem" layoutX="100.0" layoutY="100.0" prefHeight="300.0" prefWidth="500.0" styleClass="ap">
+         <children>
+            <Label layoutX="222.0" layoutY="40.0" text="Matière" />
+            <Label layoutX="231.0" layoutY="156.0" text="Date" />
+            <Label layoutX="205.0" layoutY="95.0" text="Sous-matières" />
+            <TextField fx:id="txtMatModifDem" layoutX="169.0" layoutY="57.0" />
+            <ComboBox fx:id="cboSousMatModifDem" layoutX="168.0" layoutY="119.0" prefWidth="150.0" />
+            <DatePicker fx:id="dpDateModifDem" layoutX="156.0" layoutY="181.0" />
+            <Button fx:id="btnValiderModifDem" layoutX="185.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#btnValiderModifDemClicked" text="Modifier Demande" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="apMesAides" layoutX="100.0" layoutY="100.0" prefHeight="300.0" prefWidth="500.0" styleClass="ap">
+         <children>
+            <TableView fx:id="tvMesAides" layoutX="28.0" layoutY="21.0" prefHeight="268.0" prefWidth="456.0">
+              <columns>
+                <TableColumn fx:id="tcMesAidesMat" prefWidth="100.0" text="Matière" />
+                <TableColumn fx:id="tcMesAidesSousMat" prefWidth="147.0" text="Sous-matière(s)" />
+                  <TableColumn fx:id="tcMesAidesId" prefWidth="110.0" text="ID" />
+                  <TableColumn fx:id="tcMesAidesDateFin" prefWidth="98.0" text="Date fin" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="apLesAides" layoutX="100.0" layoutY="100.0" prefHeight="300.0" prefWidth="500.0" styleClass="ap">
+         <children>
+            <TableView fx:id="tvLesAides" layoutX="22.0" layoutY="16.0" prefHeight="238.0" prefWidth="456.0">
+               <columns>
+                  <TableColumn fx:id="tcLesAidesMat" prefWidth="100.0" text="Matière" />
+                  <TableColumn fx:id="tcLesAidesSousMat" prefWidth="147.0" text="Sous-matière(s)" />
+                  <TableColumn fx:id="tcLesAidesId" prefWidth="110.0" text="ID" />
+                  <TableColumn fx:id="tcLesAidesDateFin" prefWidth="98.0" text="Date fin" />
+               </columns>
+            </TableView>
+            <Button fx:id="btnValiderLesAides" layoutX="191.0" layoutY="261.0" mnemonicParsing="false" onMouseClicked="#btnValiderLesAidesClicked" text="Traiter la demande " />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="apStatsEtudiant" layoutX="100.0" layoutY="100.0" prefHeight="300.0" prefWidth="500.0" styleClass="ap">
+         <children>
+            <TreeView fx:id="tvStatsEtudfiant" layoutX="32.0" layoutY="50.0" prefHeight="200.0" prefWidth="216.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
