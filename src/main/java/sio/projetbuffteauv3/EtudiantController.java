@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 public class EtudiantController implements Initializable {
 
     ConnexionBDD maCnx;
-    ServicesDemandes servicesDemandes = new ServicesDemandes();
+    ServicesDemandes servicesDemandes;
 
     @javafx.fxml.FXML
     private Button btnComp;
@@ -201,7 +201,7 @@ public class EtudiantController implements Initializable {
             tcLesAidesSousMat.setCellValueFactory(new PropertyValueFactory<Demande, Integer>("sousmatiere"));
             tcLesAidesId.setCellValueFactory(new PropertyValueFactory<Demande, Integer>("id"));
             tcLesAidesDateFin.setCellValueFactory(new PropertyValueFactory<Demande, Integer>("date"));
-            ServicesDemandes servicesDemandes = new ServicesDemandes();
+            servicesDemandes = new ServicesDemandes();
             tvLesAides.setItems(servicesDemandes.GetAllDemandes());
         }
      catch (ClassNotFoundException e) {

@@ -32,11 +32,11 @@ public class ServicesDemandes {
         //parcourir le jeu d'enregistrement
         while(rs.next())
         {
-            System.out.println("Designation: " + rs.getString(1));
-            System.out.println("Sous Matiere: " + rs.getString(2));
-            System.out.println("ID: " + rs.getInt(3));
-            System.out.println("Date Updated: " + rs.getString(4));
-            Demande laDemande = new Demande(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getString(4));
+            // System.out.println("Designation: " + rs.getString(1));
+            // System.out.println("Sous Matiere: " + rs.getString(2));
+            // System.out.println("ID: " + rs.getInt(3));
+            //System.out.println("Date Updated: " + rs.getString(4));
+             Demande laDemande = new Demande(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getString(4));
             lesDemandes.add(laDemande);
         }
         return lesDemandes;
