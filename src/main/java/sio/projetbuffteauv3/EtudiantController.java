@@ -1,10 +1,24 @@
 package sio.projetbuffteauv3;
 
 import javafx.event.Event;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
-public class EtudiantController {
+import sio.projetbuffteauv3.entities.Demande;
+import sio.projetbuffteauv3.tools.ConnexionBDD;
+import sio.projetbuffteauv3.tools.ServicesDemandes;
+
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+
+public class EtudiantController implements Initializable {
+
+    ConnexionBDD maCnx;
+    ServicesDemandes servicesDemandes = new ServicesDemandes();
+
     @javafx.fxml.FXML
     private Button btnComp;
     @javafx.fxml.FXML
@@ -178,4 +192,24 @@ public class EtudiantController {
     @javafx.fxml.FXML
     public void btnValiderLesAidesClicked(Event event) {
     }
+
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        try {
+            maCnx = new ConnexionBDD();
+            tcLesAidesMat.setCellValueFactory(new PropertyValueFactory<Demande, Integer>("matiere"));
+            tcLesAidesSousMat.setCellValueFactory(new PropertyValueFactory<Demande, Integer>("sousmatiere"));
+            tcLesAidesId.setCellValueFactory(new PropertyValueFactory<Demande, Integer>("id"));
+            tcLesAidesDateFin.setCellValueFactory(new PropertyValueFactory<Demande, Integer>("date"));
+            ServicesDemandes servicesDemandes = new ServicesDemandes();
+            tvLesAides.setItems(servicesDemandes.GetAllDemandes());
+        }
+     catch (ClassNotFoundException e) {
+        throw new RuntimeException(e);
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
+    }
+    }
 }
+
+
