@@ -39,25 +39,19 @@ public class ServicesMatieres {
         ObservableList<Matiere> lesSousMatieres = FXCollections.observableArrayList();
 
         PreparedStatement ps = uneCnx.prepareStatement("SELECT designation, sous_matiere FROM matiere WHERE designation = ? ");
-        ps.setString(1, (matiere));
+        ps.setString(1, matiere);
         rs = ps.executeQuery();
 
-        while (rs.next())
-        {
-            Matiere sousMatieres = new Matiere(matiere, rs.getString(2));
-            ObservableList lesSousMatiere = FXCollections.observableArrayList();
-
+        while (rs.next()) {
             String[] lesSousMatSans = rs.getString(2).split("#");
             for (String sousMatSans : lesSousMatSans) {
                 if (!sousMatSans.isEmpty()) {
-                Matiere sousMatMatiere = new Matiere(matiere, sousMatSans);
-
-                lesSousMatieres.add(sousMatMatiere);
-                    }
+                    Matiere sousMatMatiere = new Matiere(matiere, sousMatSans);
+                    lesSousMatieres.add(sousMatMatiere);
+                }
             }
-
         }
+
         return lesSousMatieres;
     }
-
 }
